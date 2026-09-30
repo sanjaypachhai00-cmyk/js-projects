@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skull Stopwatch</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="stopwatch-app">
+
+        <h1>SKULL STOPWATCH</h1>
+        <p class="subtitle">TIME IS RUNNING OUT</p>
+
+        <div class="skull">
+
+            <!-- Eyes -->
+            <div class="eye left-eye"></div>
+            <div class="eye right-eye"></div>
+
+            <!-- Nose -->
+            <div class="nose">
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Display -->
+            <div class="display">
+                <div id="time">00:00:00.000</div>
+            </div>
+
+            <!-- Teeth / mouth -->
+            <div class="mouth">
+                <div class="teeth">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- Jaw -->
+            <div class="jaw"></div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+
+            <button id="startBtn" class="start">
+                START
+            </button>
+
+            <button id="pauseBtn" class="pause">
+                PAUSE
+            </button>
+
+            <button id="resetBtn" class="reset">
+                RESET
+            </button>
+
+            <button id="lapBtn" class="lap">
+                LAP
+            </button>
+
+        </div>
+
+        <!-- Lap records -->
+        <section class="laps-section">
+
+            <h2>LAP RECORDS</h2>
+
+            <div id="laps" class="laps">
+                <p class="empty">No laps recorded</p>
+            </div>
+
+        </section>
+
+        <p class="keyboard">
+            SPACE = START / PAUSE &nbsp; | &nbsp; R = RESET &nbsp; | &nbsp; L = LAP
+        </p>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
