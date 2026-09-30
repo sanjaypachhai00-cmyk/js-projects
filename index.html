@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dragon Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <header>
+            <h1>DRAGON CALCULATOR</h1>
+            <p>AWAKEN THE DRAGON</p>
+        </header>
+
+
+        <!-- Dragon Background -->
+        <div class="dragon-background">
+
+            <!-- Normal Calculator Display -->
+            <div class="display-container">
+
+                <div id="previous-display"></div>
+
+                <div id="display">0</div>
+
+            </div>
+
+
+            <!-- Calculator -->
+            <div class="calculator-panel">
+
+                <button class="calc-btn function" data-value="AC">
+                    AC
+                </button>
+
+                <button class="calc-btn function" data-value="BACKSPACE">
+                    ⌫
+                </button>
+
+                <button class="calc-btn operator" data-value="%">
+                    %
+                </button>
+
+                <button class="calc-btn operator" data-value="/">
+                    ÷
+                </button>
+
+
+                <button class="calc-btn number" data-value="7">
+                    7
+                </button>
+
+                <button class="calc-btn number" data-value="8">
+                    8
+                </button>
+
+                <button class="calc-btn number" data-value="9">
+                    9
+                </button>
+
+                <button class="calc-btn operator" data-value="*">
+                    ×
+                </button>
+
+
+                <button class="calc-btn number" data-value="4">
+                    4
+                </button>
+
+                <button class="calc-btn number" data-value="5">
+                    5
+                </button>
+
+                <button class="calc-btn number" data-value="6">
+                    6
+                </button>
+
+                <button class="calc-btn operator" data-value="-">
+                    −
+                </button>
+
+
+                <button class="calc-btn number" data-value="1">
+                    1
+                </button>
+
+                <button class="calc-btn number" data-value="2">
+                    2
+                </button>
+
+                <button class="calc-btn number" data-value="3">
+                    3
+                </button>
+
+                <button class="calc-btn operator" data-value="+">
+                    +
+                </button>
+
+
+                <button class="calc-btn number zero" data-value="0">
+                    0
+                </button>
+
+                <button class="calc-btn number" data-value=".">
+                    .
+                </button>
+
+                <button class="calc-btn equal" data-value="=">
+                    =
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button id="voiceToggle" class="voice-toggle">
+            🔊 VOICE ON
+        </button>
+
+
+        <div id="statusMessage">
+            READY
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

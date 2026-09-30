@@ -1,0 +1,585 @@
+/* =========================================
+   DRAGON CALCULATOR
+   Main CSS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: white;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.calculator {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.calculator::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.65)
+        );
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: clamp(24px, 4vw, 42px);
+
+    letter-spacing: 6px;
+
+    color: #ffb300;
+
+    text-shadow:
+        0 0 8px #ff4500,
+        0 0 20px #ff2200,
+        0 0 40px #ff0000;
+}
+
+header p {
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #ffffff;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   DRAGON IMAGE AREA
+========================================= */
+
+.dragon-background {
+    width: min(900px, 95vw);
+    height: min(700px, 72vh);
+
+    position: relative;
+    z-index: 2;
+
+    background-image: url("images/dragon.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 25px;
+
+    border: 2px solid rgba(255, 90, 0, 0.7);
+
+    box-shadow:
+        0 0 20px rgba(255, 60, 0, 0.5),
+        0 0 60px rgba(255, 30, 0, 0.2);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   IMAGE DARKENING
+========================================= */
+
+.dragon-background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.35)
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   FOREHEAD DISPLAY
+========================================= */
+
+.forehead-display {
+    position: absolute;
+
+    /*
+        Adjust these two values if the display
+        needs to move onto the dragon's forehead.
+    */
+    top: 18%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 230px;
+    min-height: 80px;
+
+    padding: 10px 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    border: 2px solid #ff7b00;
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 0 10px #ff4500,
+        0 0 30px rgba(255, 50, 0, 0.5);
+
+    z-index: 10;
+}
+
+
+/* Display label */
+
+.forehead-display span {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #ff8c00;
+
+    margin-bottom: 5px;
+}
+
+
+/* Answer */
+
+#display {
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #fff2c2;
+
+    text-shadow:
+        0 0 5px #ff7b00,
+        0 0 15px #ff3c00;
+
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   CALCULATOR PANEL
+========================================= */
+
+.calculator-panel {
+    position: absolute;
+
+    left: 50%;
+    bottom: 5%;
+
+    transform: translateX(-50%);
+
+    width: min(390px, 85%);
+
+    padding: 18px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    background: rgba(5, 5, 5, 0.78);
+
+    border: 1px solid rgba(255, 100, 0, 0.6);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(255, 50, 0, 0.2);
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   CALCULATOR BUTTONS
+========================================= */
+
+.calc-btn {
+    height: 55px;
+
+    border: 1px solid rgba(255, 100, 0, 0.5);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(55, 20, 8, 0.95),
+            rgba(12, 5, 2, 0.95)
+        );
+
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.12s ease,
+        background 0.12s ease,
+        box-shadow 0.12s ease,
+        border-color 0.12s ease;
+}
+
+
+/* Hover */
+
+.calc-btn:hover {
+    transform: translateY(-3px);
+
+    border-color: #ff7100;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(110, 35, 5, 0.95),
+            rgba(35, 7, 2, 0.95)
+        );
+
+    box-shadow:
+        0 0 10px rgba(255, 80, 0, 0.8),
+        0 0 20px rgba(255, 40, 0, 0.3);
+}
+
+
+/* Click */
+
+.calc-btn:active {
+    transform: scale(0.91);
+
+    box-shadow:
+        0 0 20px #ff4500;
+}
+
+
+/* JavaScript active class */
+
+.calc-btn.active {
+    animation: buttonPulse 0.2s ease;
+}
+
+
+@keyframes buttonPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.88);
+
+        box-shadow:
+            0 0 25px #ff4500;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================================
+   NUMBER BUTTONS
+========================================= */
+
+.number {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   OPERATOR BUTTONS
+========================================= */
+
+.operator {
+    color: #ff9d00;
+
+    border-color: rgba(255, 120, 0, 0.7);
+}
+
+
+/* =========================================
+   FUNCTION BUTTONS
+========================================= */
+
+.function {
+    color: #ffd000;
+
+    border-color: rgba(255, 180, 0, 0.7);
+}
+
+
+/* =========================================
+   EQUAL BUTTON
+========================================= */
+
+.equal {
+    grid-column: span 2;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #b83205,
+            #4d0b02
+        );
+
+    border-color: #ff5a00;
+
+    box-shadow:
+        0 0 10px rgba(255, 50, 0, 0.5);
+}
+
+
+.equal:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #e04405,
+            #701000
+        );
+
+    box-shadow:
+        0 0 15px #ff4500,
+        0 0 30px rgba(255, 50, 0, 0.5);
+}
+
+
+/* =========================================
+   ZERO BUTTON
+========================================= */
+
+.zero {
+    grid-column: span 2;
+}
+
+
+/* =========================================
+   VOICE BUTTON
+========================================= */
+
+.voice-toggle {
+    position: relative;
+    z-index: 10;
+
+    margin-top: 15px;
+
+    padding: 10px 20px;
+
+    border: 1px solid #ff6500;
+
+    border-radius: 20px;
+
+    background: rgba(10, 5, 2, 0.85);
+
+    color: #ffae00;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.voice-toggle:hover {
+    background: #401000;
+
+    box-shadow:
+        0 0 15px #ff4500;
+}
+
+
+/* =========================================
+   STATUS MESSAGE
+========================================= */
+
+#statusMessage {
+    position: relative;
+    z-index: 10;
+
+    margin-top: 12px;
+
+    padding: 8px 20px;
+
+    color: #ff9d00;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 700px) {
+
+    .calculator {
+        padding: 15px 10px;
+    }
+
+    header {
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    header p {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .dragon-background {
+        width: 100%;
+        height: 72vh;
+
+        border-radius: 15px;
+    }
+
+    .forehead-display {
+        top: 16%;
+
+        width: 180px;
+        min-height: 65px;
+    }
+
+    #display {
+        font-size: 22px;
+    }
+
+    .calculator-panel {
+        width: 90%;
+
+        padding: 12px;
+
+        gap: 7px;
+
+        bottom: 3%;
+    }
+
+    .calc-btn {
+        height: 48px;
+
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .dragon-background {
+        height: 70vh;
+    }
+
+    .calculator-panel {
+        width: 94%;
+    }
+
+    .calc-btn {
+        height: 43px;
+
+        font-size: 15px;
+    }
+
+    .forehead-display {
+        top: 15%;
+
+        width: 160px;
+    }
+
+    #display {
+        font-size: 19px;
+    }
+
+}
