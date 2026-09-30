@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="quiz-app">
+
+        <!-- =========================
+             TOPIC SCREEN
+        ========================== -->
+
+        <section id="topicScreen" class="screen">
+
+            <div class="brand-large">
+                <div class="brand-icon">?</div>
+
+                <h1>Quiz Master</h1>
+
+                <p>
+                    Choose a topic and test your knowledge
+                </p>
+            </div>
+
+
+            <div class="topic-grid">
+
+                <button class="topic-card" data-topic="html">
+                    <span class="topic-symbol">&lt;/&gt;</span>
+                    <strong>HTML</strong>
+                    <small>100 Questions</small>
+                </button>
+
+                <button class="topic-card" data-topic="css">
+                    <span class="topic-symbol">#</span>
+                    <strong>CSS</strong>
+                    <small>100 Questions</small>
+                </button>
+
+                <button class="topic-card" data-topic="javascript">
+                    <span class="topic-symbol">JS</span>
+                    <strong>JavaScript</strong>
+                    <small>100 Questions</small>
+                </button>
+
+                <button class="topic-card" data-topic="node">
+                    <span class="topic-symbol">N</span>
+                    <strong>Node.js</strong>
+                    <small>100 Questions</small>
+                </button>
+
+                <button class="topic-card" data-topic="react">
+                    <span class="topic-symbol">⚛</span>
+                    <strong>React</strong>
+                    <small>100 Questions</small>
+                </button>
+
+                <button class="topic-card" data-topic="sql">
+                    <span class="topic-symbol">DB</span>
+                    <strong>SQL</strong>
+                    <small>100 Questions</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SET SCREEN
+        ========================== -->
+
+        <section id="setScreen" class="screen hidden">
+
+            <button id="backToTopics" class="back-btn">
+                ← Back to Topics
+            </button>
+
+            <div class="screen-heading">
+
+                <span id="selectedTopicIcon" class="topic-symbol">?</span>
+
+                <div>
+                    <h1 id="selectedTopic">HTML</h1>
+                    <p>Select a question set</p>
+                </div>
+
+            </div>
+
+
+            <div id="setGrid" class="set-grid"></div>
+
+        </section>
+
+
+        <!-- =========================
+             QUIZ SCREEN
+        ========================== -->
+
+        <section id="quizScreen" class="screen hidden">
+
+            <header class="quiz-header">
+
+                <button id="backToSets" class="back-btn">
+                    ← Sets
+                </button>
+
+                <div class="brand">
+
+                    <div class="brand-icon small">
+                        ?
+                    </div>
+
+                    <div>
+                        <h1>Quiz Master</h1>
+                        <p id="quizTopicName">HTML</p>
+                    </div>
+
+                </div>
+
+
+                <div class="score-box">
+
+                    <span>Score</span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+            </header>
+
+
+            <!-- Progress -->
+
+            <section class="progress-section">
+
+                <div class="progress-info">
+
+                    <span id="questionNumber">
+                        Question 1 of 10
+                    </span>
+
+                    <span id="progressPercent">
+                        10%
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="progress"
+                        class="progress">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Quiz Card -->
+
+            <section class="quiz-card">
+
+                <div class="quiz-meta">
+
+                    <span id="category">
+                        HTML
+                    </span>
+
+                    <span id="setLabel">
+                        SET 1
+                    </span>
+
+                </div>
+
+
+                <h2 id="question">
+                    Question goes here
+                </h2>
+
+
+                <div
+                    id="options"
+                    class="options">
+                </div>
+
+
+                <div
+                    id="feedback"
+                    class="feedback">
+                </div>
+
+
+                <div class="quiz-controls">
+
+                    <button
+                        id="nextBtn"
+                        class="next-btn"
+                        disabled>
+
+                        Next Question
+
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================
+             RESULT SCREEN
+        ========================== -->
+
+        <section
+            id="resultScreen"
+            class="screen hidden">
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+                <p class="result-label">
+                    QUIZ COMPLETED
+                </p>
+
+                <h1 id="resultTitle">
+                    HTML - Set 1
+                </h1>
+
+                <h2>
+                    Your Final Score
+                </h2>
+
+
+                <div class="final-score">
+
+                    <span id="finalScore">
+                        0
+                    </span>
+
+                    <small>
+                        / 10
+                    </small>
+
+                </div>
+
+
+                <p id="resultMessage">
+                    Great job!
+                </p>
+
+
+                <div class="result-buttons">
+
+                    <button
+                        id="retryBtn"
+                        class="restart-btn">
+
+                        Try Again
+
+                    </button>
+
+
+                    <button
+                        id="setsBtn"
+                        class="secondary-btn">
+
+                        Choose Another Set
+
+                    </button>
+
+
+                    <button
+                        id="topicsBtn"
+                        class="secondary-btn">
+
+                        Choose Another Topic
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>
+                Quiz Master • Learn. Think. Improve.
+            </p>
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
