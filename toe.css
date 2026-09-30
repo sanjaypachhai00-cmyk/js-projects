@@ -1,6 +1,6 @@
 /* =========================
-   RESET
-========================= */
+   BASIC RESET
+   ========================= */
 
 * {
     margin: 0;
@@ -8,10 +8,9 @@
     box-sizing: border-box;
 }
 
-
 /* =========================
    BODY
-========================= */
+   ========================= */
 
 body {
     min-height: 100vh;
@@ -36,12 +35,13 @@ body {
         #050505;
 
     color: #ffffff;
-}
 
+    overflow: hidden;
+}
 
 /* =========================
    MAIN CONTAINER
-========================= */
+   ========================= */
 
 .container {
     width: 850px;
@@ -66,10 +66,9 @@ body {
     backdrop-filter: blur(20px);
 }
 
-
 /* =========================
-   LEFT SIDE
-========================= */
+   LEFT PANEL
+   ========================= */
 
 .left-panel {
     width: 40%;
@@ -78,14 +77,12 @@ body {
     flex-direction: column;
 
     align-items: flex-start;
-
     justify-content: center;
 }
 
-
 /* =========================
    TITLE
-========================= */
+   ========================= */
 
 h1 {
     font-size: 3.2rem;
@@ -107,12 +104,13 @@ h1 {
         0 0 25px rgba(255, 30, 30, 0.25);
 }
 
-
 /* =========================
-   PLAYER STATUS
-========================= */
+   STATUS
+   ========================= */
 
 #status {
+    min-width: 300px;
+
     margin-bottom: 30px;
 
     padding: 12px 22px;
@@ -131,14 +129,15 @@ h1 {
 
     letter-spacing: 1px;
 
+    text-align: center;
+
     box-shadow:
         0 0 20px rgba(255, 30, 30, 0.18);
 }
 
-
 /* =========================
    RESET BUTTON
-========================= */
+   ========================= */
 
 #reset {
     padding: 13px 30px;
@@ -165,7 +164,6 @@ h1 {
         0 7px 20px rgba(220, 20, 20, 0.35);
 }
 
-
 #reset:hover {
     background: #ffdf00;
 
@@ -177,19 +175,16 @@ h1 {
         0 10px 30px rgba(255, 223, 0, 0.45);
 }
 
-
 #reset:active {
     transform: scale(0.95);
 }
 
-
 /* =========================
    GAME BOARD
-========================= */
+   ========================= */
 
 .game {
     width: 390px;
-
     height: 390px;
 
     padding: 12px;
@@ -213,14 +208,12 @@ h1 {
         0 0 35px rgba(220, 20, 20, 0.12);
 }
 
-
 /* =========================
    CELLS
-========================= */
+   ========================= */
 
 .cell {
     width: 100%;
-
     height: 100%;
 
     border: 1px solid rgba(255, 223, 0, 0.25);
@@ -244,9 +237,6 @@ h1 {
         border 0.2s ease;
 }
 
-
-/* Cell hover */
-
 .cell:hover {
     background: #220808;
 
@@ -259,33 +249,89 @@ h1 {
         inset 0 0 15px rgba(255, 223, 0, 0.08);
 }
 
-
-/* Cell click */
-
 .cell:active {
     transform: scale(0.95);
 }
 
-
 /* =========================
-   WINNING CELL
-========================= */
+   WINNING CELLS
+   ========================= */
 
-.cell[style*="background"] {
-    color: #ffffff;
+.cell.winner {
+    background: #d41414;
+
+    color: #ffdf00;
 
     border-color: #ffdf00;
 
-    box-shadow:
-        0 0 25px rgba(255, 223, 0, 0.5);
+    animation: winnerPulse 0.5s infinite alternate;
 }
 
+@keyframes winnerPulse {
+
+    from {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 10px rgba(255, 223, 0, 0.4);
+    }
+
+    to {
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 25px rgba(255, 223, 0, 0.8),
+            0 0 45px rgba(255, 30, 30, 0.6);
+    }
+}
+
+/* =========================
+   CONFETTI
+   ========================= */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 10px;
+    height: 18px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    animation: fall 2s linear forwards;
+}
+
+@keyframes fall {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+}
 
 /* =========================
    MOBILE
-========================= */
+   ========================= */
 
 @media (max-width: 850px) {
+
+    body {
+        overflow: auto;
+    }
 
     .container {
         width: 95%;
@@ -313,11 +359,12 @@ h1 {
 
     #status {
         margin-bottom: 20px;
+
+        min-width: 280px;
     }
 
     .game {
         width: 330px;
-
         height: 330px;
     }
 
